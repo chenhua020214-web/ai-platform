@@ -1,0 +1,23 @@
+﻿services:
+  - type: web
+    name: ai-platform
+    env: node
+    region: singapore
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: JWT_SECRET
+        generateValue: true
+      - key: DEEPSEEK_API_KEY
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: ALIYUN_API_KEY
+        sync: false
+      - key: KLING_API_KEY
+        sync: false
+      - key: KLING_SECRET_KEY
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false

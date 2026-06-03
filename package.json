@@ -1,0 +1,19 @@
+﻿{
+  "name": "ai-platform",
+  "version": "1.0.0",
+  "description": "AI 聚合平台 - 聊天 / 图片 / 视频生成",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "jsonwebtoken": "^9.0.2",
+    "bcryptjs": "^2.4.3",
+    "uuid": "^10.0.0",
+    "openai": "^4.73.0"
+  }
+}

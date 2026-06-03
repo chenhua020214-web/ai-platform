@@ -48,6 +48,13 @@ for (const f of ["users.json", "api-keys.json", "usage.json", "videos.json"]) {
 
 app.use(cors());
 app.use(express.json({ limit: "50mb" }));
+// 注册路由前输出日志
+console.log("正在注册路由...");
+
+app.get("/api/health", (req, res) => {
+  res.json({ status: "ok", time: new Date().toISOString(), routes: Object.keys(app.routes || {}).length });
+});
+
 app.use(express.static(path.join(__dirname, "public")));
 
 // ==================== JWT 中间件 ====================
@@ -461,4 +468,12 @@ app.get("/", (req, res) => res.sendFile(path.join(__dirname, "public", "index.ht
 app.get("/app", (req, res) => res.sendFile(path.join(__dirname, "public", "index.html")));
 app.get("/admin", (req, res) => res.sendFile(path.join(__dirname, "public", "index.html")));
 
+// 输出已注册路由
+console.log("注册的路由:");
+app._router?.stack?.forEach((r) => {
+  if (r.route) {
+    console.log(`  ${Object.keys(r.route.methods).join(",").toUpperCase()} ${r.route.path}`);
+  }
+});
 app.listen(PORT, "0.0.0.0", () => console.log(`AI 平台: http://localhost:${PORT}`));
+

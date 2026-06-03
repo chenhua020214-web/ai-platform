@@ -2,7 +2,6 @@
     "name":  "ai-platform",
     "version":  "1.0.0",
     "description":  "AI 鑱氬悎骞冲彴 - 鑱婂ぉ / 鍥剧墖 / 瑙嗛鐢熸垚",
-    "type":  "module",
     "scripts":  {
                     "start":  "node server.js",
                     "dev":  "node --watch server.js"
